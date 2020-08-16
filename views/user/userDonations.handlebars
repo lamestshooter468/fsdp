@@ -1,0 +1,23 @@
+<div class="container">
+<!--- Add your own codes here for what you'd like to see appear on the STAFF page -->
+    <div class="row">
+        <table class="table table-bordered">
+            {{#each donations}}
+                <tr>
+                    <td>Donation ID: {{id}}</td>
+                    <td>Name: {{name}}</td>
+                    <td>Email: {{email}}</td>
+                    <td>Amount: {{amount}}</td>
+                    <td class="date">Donated on: {{formatDate dateDonated "DD/MM/YYYY"}}</td>
+                </tr>
+                <tr>
+                    {{#if message}}
+                    <td colspan="5">Message: {{message}}</td>
+                    {{else}}
+                    <td colspan="5">Message: NIL</td>
+                    {{/if}}
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+</div>

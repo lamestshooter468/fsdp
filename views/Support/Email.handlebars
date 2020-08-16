@@ -1,0 +1,17 @@
+<div>
+    <div class="card card-body">
+        <h5 class="text-center">Contact Us</h5>
+        <div class="container">
+            <form action="/email" method="POST">
+                <div class="form-group">
+                    <label for="Your email">Your email:</label>
+                    <input type="text" class="form-control" name="email" value="{{email}}" placeholder="Enter your email here" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="spMessage" value="{{spMessage}}" placeholder="Type your message here" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

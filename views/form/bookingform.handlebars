@@ -1,0 +1,90 @@
+<h1>Book an appointment</h1>
+<form action="/selfchecker/bookapptform" method="POST" id="form">
+    <div class="card">
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name" class="font-weight-bold">Name</label>
+                    <input type="name" class="form-control" name="name" placeholder="Full Name" value="{{name}}"
+                        required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="contact number" class="font-weight-bold">Contact Number</label>
+                    <input type="contact number" class="form-control" placeholder="9122 4567" name="contactNumber"
+                        value="{{contactNumber}}" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email" class="font-weight-bold">Email</label>
+                    <input type="email" class="form-control" placeholder="abc@gmail.com" name="email" value="{{email}}"
+                        required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="address" class="font-weight-bold">Address</label>
+                    <input type="address" class="form-control" placeholder="Blk 100 Street Name #01-123" name="address"
+                        value="{{address}}" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="font-weight-bold">Preferred Date</label>
+                    <input id="datepicker" width="200" name="date" readonly />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="contactmethod" class="font-weight-bold">How would you like us to reach you?</label>
+                    <select class="form-control" aria-placeholder="Phone" name="contactmethod" value="{{contactmethod}}"
+                        required>
+                        <option>Phone</option>
+                        <option>Email</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="font-weight-bold">Preferred Time Slots (select more than 1 option)</label>
+                    <br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="timing" id="9am" value="9am">
+                        <label class="form-check-label" for="9am">9am</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="timing" id="10am" value="10am">
+                        <label class="form-check-label" for="10am">10am</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="timing" id="11am" value="11am">
+                        <label class="form-check-label" for="11am">11am</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="timing" id="2pm" value="2pm">
+                        <label class="form-check-label" for="2pm">2pm</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="timing" id="3pm" value="3pm">
+                        <label class="form-check-label" for="3pm">3pm</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="timing" id="4pm" value="4pm">
+                        <label class="form-check-label" for="4pm">4pm</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="timing" id="5pm" value="5pm">
+                        <label class="form-check-label" for="5pm">5pm</label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Book</button>
+        </div>
+    </div>
+    </div>
+</form>
+
+<script>
+	/*
+		$('#datepicker').datepicker({
+			format: 'yyyy-mm-dd',
+			value: new Date().toISOString().slice(0,10),
+			uiLibrary: 'bootstrap4',
+		});
+	*/
+	$('#datepicker').datepicker({
+		value: new Date().toLocaleDateString('en-SG'),
+		format: 'dd/mm/yyyy',
+		uiLibrary: 'bootstrap4',
+	});
+</script>

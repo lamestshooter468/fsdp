@@ -1,0 +1,102 @@
+<div>
+    <div class="donDesc pull-left">
+        <h3 class="text-centre">Why Donate?</h3>
+        <p>It helps to keep us afloat :)</p>
+    </div>
+    <div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#minus").click(function(){
+                    var $input=$(this).parent().find("#donAmt")
+                    var count=parseInt($input.val())-1;
+                    count=count<1?1:count;
+                    $input.val(count)
+                    $input.change();
+                    $.ajax({
+                        type:"post",
+                        url:"/donate/changeValue",
+                        data:{
+                            "donAmt":count
+                        },
+
+                        success:function(data){location.reload}
+                    })
+                })
+                $("#plus").click(function(){
+                    var $input=$(this).parent().find("#donAmt")
+                    var count=parseInt($input.val())+1;
+                    count=count<1?1:count;
+                    $input.val(count)
+                    $input.change();
+                    $.ajax({
+                        type:"post",
+                        url:"/donate/changeValue",
+                        data:{
+                            "donAmt":count
+                        },
+
+                        success: function(data){location.reload}
+                    })
+                })
+                $("#donAmt").blur(function(){
+                    if(!(this).val()){
+                        $(this).val(1);
+                        $(this).change();
+                    }
+                    $.ajax({
+                        type:"post",
+                        url:"/donate/changeValue",
+                        data:{
+                            "donAmt":count
+                        },
+
+                        success: function(data){location.reload}
+                    })
+                })
+            })
+        </script>
+        <style type="text/css">
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button{
+                -webkit-appearance:none;
+                margin:0;
+            }
+            input[type="number"]{
+                -moz-appearance:textfield;
+            }
+        </style>
+        <form class="pull-right bg" action="/donate/processPayment"  method="post"> 
+            <h3>Buy a drink for us to keep this running</h3>
+            <div class="form-group">
+                <button type="button" class="btn btn-info" id="minus">-</button>
+                <input type="number" name="donAmt" id="donAmt" defaultValue=1 min=1 value=1>
+                <button type="button" class="btn btn-info" id="plus">+</button>
+                <div class="pull-right">
+                    <span class="">$2 a cup</span><br>
+                    <span class="">Total: ${{donAmt}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                {{#if user}}
+                {{else}}
+                <label for="donEmail">Your email for us to confirm</label>
+                <input type="email" name="donEmail" class="form-control " placeholder="example@gmail.com" required>
+                {{/if}}
+            </div>
+            <div class="form-group">
+                <label for="donMsg">Your message to us</label>
+                <input type="text" name="donMsg" placeholder="(Optional)">
+            </div>
+            <div class="form-group">
+                {{#if user}}
+                <p><small>Your username and email will be automatically entered for us to keep track.</small></p>
+                {{else}}
+                <label for="donName">Your Name for display</label>
+                <input type="text" name="donName" placeholder="(Optional)">
+                {{/if}}
+            </div>
+            <button type="submit" class="btn btn-primary">Buy</button>
+            <p><small>All donations are one time!</small></p>
+        </form>
+    </div>
+</div>

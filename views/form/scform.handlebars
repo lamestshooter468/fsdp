@@ -1,0 +1,133 @@
+<h1>Self-Checker Form</h1>
+<form acion="/" method="post" id="form">
+    <div class="card">
+    <div class="card-body">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+        <label for="name" class="font-weight-bold">Name</label>
+        <input type="name" class="form-control" name="name" placeholder="Full Name" value="{{name}}" required>
+        </div>
+        <div class="form-group col-md-6">
+        <label for="gender" class="font-weight-bold">Gender</label>
+        <select class="form-control" aria-placeholder="Male" name="gender" value="{{gender}}" required>
+            <option>Male</option>
+            <option>Female</option>
+        </select>        
+        </div>
+        <div class="form-group col-md-6">
+        <label for="contact number" class="font-weight-bold">Contact Number</label>
+        <input type="contact number" class="form-control" placeholder="9123 4567" name="contactNumber" value="{{contactNumber}}" required>
+        </div>
+        <div class="form-group col-md-6">
+        <label for="email" class="font-weight-bold">Email</label>
+        <input type="email" class="form-control" placeholder="abc@gmail.com" name="email" value="{{email}}" required>
+        </div>
+        <div class="form-group col-md-6">
+        <label for="address" class="font-weight-bold">Address</label>
+        <input type="address" class="form-control" placeholder="Blk 100 Street Name #01-123" name="address" value="{{address}}" required>
+        </div>
+    </div>
+    {{!-- "col-12 col-sm-12 col-md-6 col-lg-6" --}}
+    <div class="form-group">
+        <label class="font-weight-bold">Have you travelled overseas for the past 2 weeks?</label>
+        <br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="Yes" value="Yes" name="travelled" checked>
+            <label class="form-check-label" for="Yes">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="No" value="No" name="travelled">
+            <label class="form-check-label" for="No">No</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="font-weight-bold">Most common and serious symptoms:</label>
+        <br>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Ssymptoms" id="fever" value="Fever">
+            <label class="form-check-label" for="fever">Fever</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Ssymptoms" id="drycough" value="Dry Cough">
+            <label class="form-check-label" for="drycough">Dry Cough</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Ssymptoms" id="tiredness" value="Tiredness">
+            <label class="form-check-label" for="tiredness">Tiredness</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Ssymptoms" id="diffbreathing" value="Difficulty Breathing">
+            <label class="form-check-label" for="diffbreathing">Difficulty in breathing</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Ssymptoms" id="chestpain" value="Chest Pain/Pressure">
+            <label class="form-check-label" for="chestpain">Chest pain or pressure</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Ssymptoms" id="lossbodyfunc" value="Loss Speech/Movement">
+            <label class="form-check-label" for="lossbodyfunc">Loss of speech or movement</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="font-weight-bold">Less common symptoms:</label>
+        <br>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Nsymptoms" id="achespain" value="AchesPain">
+            <label class="form-check-label" for="achespain">Aches and pain</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Nsymptoms" id="sorethroat" value="Sore throat">
+            <label class="form-check-label" for="sorethroat">Sore throat</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Nsymptoms" id="diarrhoea" value="Diarrhoea">
+            <label class="form-check-label" for="diarrhoea">Diarrhoea</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Nsymptoms" id="headache" value="Headache">
+            <label class="form-check-label" for="headache">Headache</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Nsymptoms" id="losstaste" value="Loss Taste/Smell">
+            <label class="form-check-label" for="losstaste">Loss of taste or smell</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="Nsymptoms" id="rash" value="Skin Rash">
+            <label class="form-check-label" for="rash">Rash on skin</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="font-weight-bold">On a scale of 1-5, how severe is/are the symptom(s) you are experiencing? (5 = most severe)</label>
+        <br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="1" value=1 name="severity" checked>
+            <label class="form-check-label" for="1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="2" value=2 name="severity">
+            <label class="form-check-label" for="2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="3" value=3 name="severity">
+            <label class="form-check-label" for="3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="4" value=4 name="severity">
+            <label class="form-check-label" for="4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="5" value=5 name="severity">
+            <label class="form-check-label" for="5">5</label>
+        </div>
+    </div>
+
+    <p>Reference from the World Health Organization (WHO) website. Source: <a href="https://www.who.int/health-topics/coronavirus#tab=tab_3">https://www.who.int/health-topics/coronavirus#tab=tab_3</a></p>
+    <p style="color:red">Note: All information are kept confidential.</p>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </div>
+</form>

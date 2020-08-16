@@ -1,0 +1,42 @@
+<div class="commcontainer container">
+    <div class="row mb-3 searches">
+        <div class="col">
+            <form action="/user/userPost/{{user.id}}" method="POST">
+                <div class="search col-lg-10 col-md-8 col-sm-12">
+                    <input type="text" class="search_bar form-control" name="search" value="{{search}}" placeholder="Search by Title">
+                </div>
+                <div class="search col-lg-1 col-md-2 col-sm-6">
+                    <select class="filter" name="filter">
+                        <option value="All">All</option>
+                        <option value="Ideas">Ideas</option>
+                        <option value="Work">Work</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="search col-lg-1 col-md-2 col-sm-6">
+                    <button type="submit" class="btn btn-primary filter_btn">Search</button>
+                </div>
+        </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-10 col-md-10 col-sm-12">
+            {{#each post}}
+                <div class="row mb-2">
+                    <a href="/community/question/{{id}}"><table rules="none" class="tables table table-sm table-bordered">
+                        <tr><th class="commTitle">{{title}}</th>
+                        <td class="type">{{type}}</td>
+                        <td class="date">Posted on: {{formatDate date "DD/MM/YYYY"}}</td></tr>
+                        <tr><td colspan="3" class="showtext">{{text}}</td></tr></table></a>
+                    <br>
+                </div>
+            {{/each}}
+        </div>
+        <div class="col col-lg-2 col-md-2">
+            <table border="1" rules="none" class="float">
+                <tr><td><a href="/community/create">Create</a></td></tr>
+                <tr><td><a href="/community/feedback">Feedback</a></td></tr>
+            </table>
+        </div>
+    </div>
+</div>

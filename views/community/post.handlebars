@@ -1,0 +1,46 @@
+<div class="commcontainer container">
+    <div class="row">
+        <div class="col col-lg-10 col-mg-10 col-sm-9">
+            <div>
+                <table class="post tables table table-bordered">
+                    <tr><th>{{title}}</th>
+                    <td class="type">{{type}}</td>
+                    <td class="date">Posted by: 
+                    {{#if userId}}
+                    <a href="/user/{{userID}}" class="username">{{name}}</a>
+                    {{else}}
+                    <p class="username">{{name}}</p>
+                    {{/if}}
+                    </td>
+                    <td class="date">Posted on: {{formatDate date "DD/MM/YYYY"}}</td></tr>
+                    <tr><td colspan="4" class="postText">{{text}}</td></tr>
+                </table>
+            </div>
+            <div class="mb-2">
+                <form action="./{{id}}" method="POST">
+                    <input type="text" name="comment" class="comment" placeholder="Add a comment" value="{{comment}}"><button type="submit" class="btn btn-primary">Comment</button>
+                </form>
+            </div>
+            <div>
+                {{#each commentDB}}
+                    <table class="commtable mb-1 table table-sm">
+                        <tr><th class="commth">
+                            {{#if userID}}
+                            <a href="/user/{{userID}}" class="username">{{userName}}</a>
+                            {{else}}
+                            <p class="username">{{userName}}</p>
+                            {{/if}}
+                            </th><td class="date">Commented on: {{formatDate date "DD/MM/YYYY"}}</td></tr>
+                        <tr><td colspan="2" class="commtd" class="commtext">{{comment}}</td></tr>
+                    </table>
+                {{/each}}
+            </div>
+        </div>
+        <div class="col col-lg-2 col-mg-2 col-sm-3">
+            <table>
+                <tr><td><a href="/community/create">Create</a></td></tr>
+                <tr><td><a href="/community/feedback">Feedback</a></td></tr>
+            </table>
+        </div>
+    </div>
+</div>

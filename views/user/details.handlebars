@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+    </div>
+    <div class="row mb-6">
+        <h2 class="display-2">{{user.name}}</h2>
+    </div>
+    <div class="row mb-6">
+        <div class="col col-lg-6 col-mb-6 col-12">
+            <label for="name"><small>Name</small></label>
+            <p>{{user.name}}</p>
+        </div>
+        <div class="col col-lg-6 col-mg-6 col-sm-12">
+            <label for="email"><small>Email</small></label>
+            <p>{{user.email}}</p>
+        </div>
+    </div>
+    {{#if check}}
+    <div class="row mb-6">
+        <a class="btn btn-primary" href="/user/update/{{user.id}}" role="button">Change details</a>
+    </div>
+    {{/if}}
+    <!--  Details in the page will be split between to sides of the page
+    (Left and Right)!!!!!!
+    Please adjust your layout of the code accordingly -->
+    <div class="row mb-6">
+        <div class="col col-lg-6 col-mb-6 col-sm-12">
+            <!-- Add your codes here  -->
+        </div>
+        <div class="col col-lg-6 col-mb-6 col-sm-12">
+            <!-- Add your codes here  -->
+        </div>
+    </div>
+    {{#if check}}
+    <div class="row mb-6">
+        <label for="Donation">View your Donations here</label>
+    </div>
+    {{/if}}
+    <div>
+        <a class="btn btn-primary" href="/user/userDonations/{{user.id}}" role="button">View</a>
+    </div>
+    <div class="row">
+        {{#if check}}
+        <label for="community">View your community posts here</label>
+        {{else}}
+        <label for="community">View posts created by {{user.name}}</label>
+        {{/if}}
+    </div>
+    <div>
+        <a class="btn btn-primary" href="/user/userPost/{{user.id}}" role="button">View</a>
+    </div>
+</div>

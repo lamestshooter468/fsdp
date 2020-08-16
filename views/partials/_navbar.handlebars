@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+	<div class="container">
+		<a class="navbar-brand" href="/">Covid-19</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+				  aria-expanded="false"
+				  aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/selfchecker/selfcheckerform">Self-Checker</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/recentNews">Recent News</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/covid-19data">Covid-19 Data</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/donate/SupportUs">Support Us</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/community/comm">Community</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/ContactUs">Contact Us</a>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				{{#if user}}
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">{{user.name}}</a>
+						<div class="dropdown-menu">
+							<a href="/user/{{user.id}}" class="dropdown-item">Profile</a>
+							{{#if user.admin}}
+							<a href="/user/staff/{{user.id}}" class="dropdown-item">Administration</a>
+							<a href="/user/staff/{{user.id}}/results" class="dropdown-item">Checker Results</a>
+							{{/if}}
+							<a href="/logout" class="dropdown-item">Logout</a>
+						</div>
+					</li>
+				{{else}}
+					<li class="nav-item log">
+						<a href="/showLogin" class="nav-link">Login</a>
+					</li>
+					<li class="nav-item log">
+						<a href="/showRegister" class="nav-link">Register</a>
+					</li>
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+</nav>

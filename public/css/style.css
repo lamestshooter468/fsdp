@@ -1,0 +1,103 @@
+.logo{
+  width:130px;
+  margin:auto;
+}
+
+table{
+  border: 1px solid black;
+  margin-right: 80px;
+  overflow: hidden;
+}
+
+.tables{
+  width: 120%;
+}
+
+.commtable{
+  width: 100%
+}
+
+th{
+  word-break: break-all;
+  font-size: 1.2em;
+  min-width: 500px;
+  max-width: 500px;
+}
+
+.post{
+  min-height: 2em;
+  max-height: 8em;
+  width: 100%;
+}
+
+.type{
+  text-align: center;
+  background-color: green;
+  width: 75px;
+  color: white;
+}
+
+.date{
+  text-align: right;
+  padding-right: 5px;
+  font-size: 0.8em;
+  width: 100px;
+}
+
+.comment{
+  width: 84.5%;
+}
+
+.showtext, .commtext, .postText{
+  word-break: break-all;
+}
+
+.showtext{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+  white-space: nowrap;
+}
+
+.commTitle{
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search{
+  float:left;
+}
+
+.search_bar{
+  width: 100%
+}
+
+.searches{
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+
+.commcontainer{
+  border: 1px solid black;
+}
+
+.commth{
+  font-size: 1em;
+  min-width: 500px;
+  max-width: 500px;
+}
+
+.fctable{
+  table-layout: fixed;
+  width: 100%;
+}
+
+.float{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 50px;
+  font-size: 20px;
+}

@@ -1,0 +1,39 @@
+<div>
+    <div class = "card card-body">
+        <h3 class="text-center">Create a Post</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col col-lg-9 col-mg-9 col-sm-8">
+                    <form action = "./create" method="POST">
+                        <div class = "form-group">
+                            <label for="type">Type</label>
+                            <select id="type" name="type">
+                                <option value="Ideas">Ideas</option>
+                                <option value="Work">Work</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class = "form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class='form-control' name='title' value="{{title}}" required>
+                        </div>
+                        <div class = "form-group">
+                            <label for="text">Text</label>
+                                <textarea class="form-control" name="text" value="{{text}}" placeholder="Text (optional)"></textarea>
+                        </div>
+                            <button type="submit" class="btn btn-primary">Post</button>
+                    </form>
+                </div>
+                <div class="col col-lg-3 col-mg-3">
+                    <table class="fctable">
+                        <tr><th>Rules:</th></tr>
+                        <tr><td class="fcdata">1) Do not post something that will cause others to feel insulted.</td></tr>
+                        <tr><td class="fcdata">2) Try not to post something that has already been posted.</td></tr>
+                        <tr><td class="fcdata">3) Title and type should match with text description.</td></tr>
+                        <tr><td class="fcdata">4) Remember to have fun!</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
