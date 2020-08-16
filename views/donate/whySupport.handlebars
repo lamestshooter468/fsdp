@@ -38,21 +38,14 @@
                         success: function(data){location.reload}
                     })
                 })
-                $("#donAmt").blur(function(){
-                    if(!(this).val()){
-                        $(this).val(1);
-                        $(this).change();
+               $("#donAmt").blur(function(){
+                    if(!$(this).val()) {$(this).val(1);}
+                })$("#donEmail").blur(function(){
+                    if(!$(this).val()) {
+                        alert("Your email is required for us to verify your donation legitmacy");
                     }
-                    $.ajax({
-                        type:"post",
-                        url:"/donate/changeValue",
-                        data:{
-                            "donAmt":count
-                        },
-
-                        success: function(data){location.reload}
-                    })
                 })
+
             })
         </script>
         <style type="text/css">
@@ -94,6 +87,14 @@
                 <label for="donName">Your Name for display</label>
                 <input type="text" name="donName" placeholder="(Optional)">
                 {{/if}}
+            </div>
+            <div class="form-group">
+                <label for="donCNo">Card Number</label>
+                <input type="number" name="donCNo" id="donCNo" placeholder="Card Number">
+            </div>
+            <div class="form-group">
+                <label for="donCcv">Card CV</label>
+                <input type="number" name="donCcv" id="donCcv" placeholder="Card CV">
             </div>
             <button type="submit" class="btn btn-primary">Buy</button>
             <p><small>All donations are one time!</small></p>
