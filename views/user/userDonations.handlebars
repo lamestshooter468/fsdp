@@ -9,12 +9,13 @@
                     <td>Email: {{email}}</td>
                     <td>Amount: {{amount}}</td>
                     <td class="date">Donated on: {{formatDate dateDonated "DD/MM/YYYY"}}</td>
+                    <td>Card used: {{CNo}}</td>
                 </tr>
                 <tr>
                     {{#if message}}
-                    <td colspan="5">Message: {{message}}</td>
+                    <td colspan="6">Message: {{message}}</td>
                     {{else}}
-                    <td colspan="5">Message: NIL</td>
+                    <td colspan="6">Message: NIL</td>
                     {{/if}}
                 </tr>
             {{/each}}
