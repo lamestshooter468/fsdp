@@ -14,12 +14,18 @@ router.post("/changeValue",(req,res)=>{
     let email=req.body.donEmail;
     let name=req.body.donName;
     let message=req.body.donMsg;
+    let CNo=req.body.donCNo;
+    let CExpDate=req.body.donExpDate;
+    let CSecNo=req.body.donCcv;
 
     res.render("./donate/whySupport",{
         amount,
         email,
         name,
-        message
+        message,
+        CNo,
+        CExpDate,
+        CSecNo
     })
 })
 router.post("/processPayment",(req,res,next)=>{
@@ -27,15 +33,22 @@ router.post("/processPayment",(req,res,next)=>{
     let email=req.user ? req.user.email : req.body.donEmail;
     let name=req.user ? req.user.name : req.body.donName;
     let message=req.body.donMsg;
+    let CNo=req.body.donCNo;
+    let CExpDate=req.body.donExpDate;
+    let CSecNo=req.body.donCcv;
 
     var date= new Date();
     let dateDonated=date.toLocaleDateString("en-sg");
+    console.log(CNo === "6415212541353415");
     
     payMoney.create({
         amount,
         email,
         name,
         message,
+        CNo,
+        CExpDate,
+        CSecNo,
         dateDonated
     })
     .then()
@@ -47,7 +60,7 @@ router.post("/processPayment",(req,res,next)=>{
             from: "Support Team Self-Checker <SpTeamSelfChecker@gmail.com>",
             to: email,
             subject: "Support",
-            text: "Your Donations has been confirmed. The details of the donation can be found below\nID: " + donation.id +   "\nAmount: " + amount + "\nDate Donated: " + dateDonated + "\n\nThank you for supporting our cause, we greatly appreciate your donation."
+            text: "Your Donations has been confirmed. The details of the donation can be found below\nID: " + donation.id +   "\nAmount: " + amount + "\nDate Donated: " + dateDonated + "\nCard used: " + CNo + "\n\nThank you for supporting our cause, we greatly appreciate your donation."
         };
 
         mg.messages().send(data, function(error, body) {
