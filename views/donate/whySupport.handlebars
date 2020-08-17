@@ -38,14 +38,64 @@
                         success: function(data){location.reload}
                     })
                 })
-               $("#donAmt").blur(function(){
+                $("#donAmt").blur(function(){
                     if(!$(this).val()) {$(this).val(1);}
-                })$("#donEmail").blur(function(){
+                })
+                $("#donEmail").blur(function(){
                     if(!$(this).val()) {
                         alert("Your email is required for us to verify your donation legitmacy");
                     }
                 })
+                $("#donCcv").blur(function () {
+                    if (!$(this).val()) {
+                        alert("Your card's sequrity number is required for you to be able to donate to us");
+                    }
+                });
+                $('#donCcv').bind('keypress', function (event) {
+                    var regnum = new RegExp("^[0-9\b]+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    var seclen = $(this).val().length;
+                    if (!regnum.test(key)) {
+                        event.preventDefault();
+                    } else if (seclen <3) {
+                        if (!regnum.test(key)) {
+                            event.preventDefault();
+                        }
+                    } else if (seclen>=3){
+                        event.preventDefault();
+                    }
+                });
+                $('#donExpDate').bind('keypress', function (event) {
+                    var regnum = new RegExp("^[0-9\b]+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    var ExDa = $(this).val().length;
+                    var $input=$(this).val();
+                    if (!regnum.test(key)) {
+                        event.preventDefault();
+                    } else if (ExDa <4) {
+                        if (!regnum.test(key)) {
+                            event.preventDefault();
+                        }
+                    } else if (ExDa>=4){
+                        event.preventDefault();
+                    }
+                });
+                $('#donCNo').bind('keypress', function (event) {
+                    var regnum = new RegExp("^[0-9\b]+$");
+                    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                    var CaNoLen = $(this).val().length;
+                    var $input=$(this).val();
+                    if (!regnum.test(key)) {
+                        event.preventDefault();
+                    } else if (CaNoLen <16) {
+                        if (!regnum.test(key)) {
+                            event.preventDefault();
+                        }
 
+                    } else if (CaNoLen>=16){
+                        event.preventDefault();
+                    }
+                });
             })
         </script>
         <style type="text/css">
@@ -88,13 +138,19 @@
                 <input type="text" name="donName" placeholder="(Optional)">
                 {{/if}}
             </div>
+            <br>
+            <h6>Payment details</h6>
             <div class="form-group">
-                <label for="donCNo">Card Number</label>
-                <input type="number" name="donCNo" id="donCNo" placeholder="Card Number">
+                <label for="donCNo">Your card number</label>
+                <input type="text" name="donCNo" id="donCNo" required>
             </div>
             <div class="form-group">
-                <label for="donCcv">Card CV</label>
-                <input type="number" name="donCcv" id="donCcv" placeholder="Card CV">
+                <label for="donExpDate">You card expiry in (MM/YY)</label>
+                <input type="text" name="donExpDate" id="donExpDate">
+            </div>
+            <div class="form-group">
+                <label for="donCcv">Your security numbers</label>
+                <input type="text" name="donCcv" id="donCcv">
             </div>
             <button type="submit" class="btn btn-primary">Buy</button>
             <p><small>All donations are one time!</small></p>
